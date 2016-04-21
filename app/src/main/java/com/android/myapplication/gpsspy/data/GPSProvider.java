@@ -5,11 +5,11 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.util.Log;
 
-/**
- * Created by stri0214 on 15.04.2016.
- */
 public class GPSProvider extends ContentProvider {
+
+    public static final String LOG_TAG = GPSProvider.class.getSimpleName();
 
     private GPSDbHelper mOpenHelper;
 
@@ -37,6 +37,7 @@ public class GPSProvider extends ContentProvider {
         long _id = db.insert(GPSContract.LocationEntry.TABLE_NAME, null, contentValues);
         if (_id > 0) {
             returnUri = GPSContract.LocationEntry.buildLocationUri(_id);
+            Log.d(LOG_TAG, "Row " + returnUri.getPath());
         } else {
             throw new UnsupportedOperationException("Unknown uri: " + uri);
         }

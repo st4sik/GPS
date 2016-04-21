@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GPSSPY</string>
+    <string name="content_authority">com.android.myapplication.gpsspy</string>
 </resources>

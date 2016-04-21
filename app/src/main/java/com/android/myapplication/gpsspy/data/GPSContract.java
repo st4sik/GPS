@@ -4,9 +4,7 @@ import android.content.ContentUris;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
-/**
- * Created by stri0214 on 15.04.2016.
- */
+
 public class GPSContract {
 
     public static final String CONTENT_AUTHORITY = "com.android.myapplication.gpsspy";
@@ -14,7 +12,6 @@ public class GPSContract {
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
     public static final String PATH_LOCATION = "location";
-
 
     public static final class LocationEntry implements BaseColumns {
 
