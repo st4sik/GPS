@@ -25,12 +25,12 @@ public class MainActivity extends ActionBarActivity {
         int time = 60000;
         int dst = 25;
 
-        int flags= PendingIntent.FLAG_CANCEL_CURRENT;
+        int flags = PendingIntent.FLAG_CANCEL_CURRENT;
 
-        Intent intent=new Intent(this, LocationUpdateReceiver.class);
-        PendingIntent pendingIntent=PendingIntent.getBroadcast(this,0,intent,flags);
+        Intent intent = new Intent("com.android.myapplication.gpsspy.LOCATION_READY");
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, flags);
 
-        locationManager.requestLocationUpdates(provider,time,dst,pendingIntent);
+        locationManager.requestLocationUpdates(provider, time, dst, pendingIntent);
 
         finish();
     }

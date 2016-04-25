@@ -3,6 +3,8 @@
     package="com.android.myapplication.gpsspy">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -22,10 +24,23 @@
             android:name=".data.GPSProvider"
             android:authorities="@string/content_authority" />
 
-        <receiver
-            android:name=".receivers.LocationUpdateReceiver">
-
+        <receiver android:name=".receivers.LocationUpdateReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="com.android.myapplication.gpsspy.LOCATION_READY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </receiver>
+
+
+        <receiver
+            android:name=".receivers.NetworkChangedReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>
